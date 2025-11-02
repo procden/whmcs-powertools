@@ -19,7 +19,7 @@
   const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
   const DEFAULT_SHORTCUT = isMac ? 'meta+shift+f' : 'ctrl+shift+f';
   const DEFAULT_FUNCTION_ORDER = ['user', 'domain', 'domainlookup', 'ticket', 'invoice', 'order'];
-  const DEFAULT_PHONE_FIELD = 'customfields[24]';
+  const DEFAULT_PHONE_FIELD = 'phone';
   
   // Donation addresses - EDIT THESE WITH YOUR ADDRESSES
   const BTC_ADDRESS = 'bc1q55g3p9zfkxkwca99yn6kupny82c4y4wy5p8k62';
@@ -498,5 +498,6 @@
       statusMessage.classList.remove('show');
     }, 3000);
   }
+
 
 })();
