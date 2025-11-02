@@ -65,26 +65,6 @@ Access settings by:
 - **Function Order**: Drag and drop to reorder search functions
 - **Phone Field**: Choose between Phone, Phone2, or custom field mapping
 
-## 📁 Project Structure
-
-WHMCS-PowerTools/
-├── manifest.json # Extension manifest
-├── background.js # Background service worker
-├── whmcs-search-modal.js # Main content script
-├── whmcs-search-modal.css # Modal styles
-├── settings.html # Settings page
-├── settings.js # Settings logic
-├── settings.css # Settings styles
-├── welcome.html # Welcome page
-├── welcome.js # Welcome page logic
-├── welcome.css # Welcome page styles
-├── icon16.png # Extension icon (16x16)
-├── icon48.png # Extension icon (48x48)
-├── icon128.png # Extension icon (128x128)
-└── assets/ # Font assets
-├── Vazirmatn-Regular.ttf
-└── Vazirmatn-Bold.ttf
-
 
 ## 🛠️ Development
 
