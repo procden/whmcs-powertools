@@ -1,0 +1,627 @@
+/* Settings Page Styles */
+
+/* Vazirmatn Font Face */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('./assets/Vazirmatn-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('./assets/Vazirmatn-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #1f2937;
+}
+
+.settings-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.settings-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 32px;
+  text-align: center;
+}
+
+.settings-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.settings-content {
+  padding: 32px;
+}
+
+.settings-section {
+  margin-bottom: 32px;
+}
+
+.settings-section:last-child {
+  margin-bottom: 0;
+}
+
+.settings-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+.section-description {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.shortcut-input-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.shortcut-input-group label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+  min-width: 130px;
+}
+
+.shortcut-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shortcut-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+}
+
+.shortcut-input.recording {
+  border-color: #667eea;
+  background: #eef2ff;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    border-color: #667eea;
+  }
+  50% {
+    border-color: #764ba2;
+  }
+}
+
+.btn-clear {
+  padding: 10px 20px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-clear:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.shortcut-info {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.info-box strong {
+  color: #374151;
+  font-size: 14px;
+}
+
+.shortcut-display {
+  background: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #667eea;
+  border: 2px solid #e5e7eb;
+}
+
+.help-text {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.help-text strong {
+  color: #374151;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.help-text ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.help-text li {
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.help-text li::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: #667eea;
+}
+
+.preset-shortcuts {
+  margin-top: 20px;
+}
+
+.preset-shortcuts p {
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.preset-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+/* Function Order Styles */
+.function-order-container {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.function-order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.function-order-item {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: move;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.function-order-item:hover {
+  border-color: #667eea;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.function-order-item.dragging {
+  opacity: 0.5;
+  transform: rotate(5deg);
+  z-index: 1000;
+}
+
+.function-order-item.drag-over {
+  border-color: #667eea;
+  background: #eef2ff;
+}
+
+.function-order-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.function-order-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  flex: 1;
+}
+
+.function-order-handle {
+  color: #9ca3af;
+  font-size: 16px;
+  cursor: grab;
+}
+
+.function-order-handle:active {
+  cursor: grabbing;
+}
+
+.order-info {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.btn-preset {
+  padding: 10px 16px;
+  background: white;
+  color: #667eea;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-preset:hover {
+  background: #eef2ff;
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.info-item {
+  background: #f9fafb;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 14px;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Donation Section */
+.donation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.donation-item {
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.donation-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.donation-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.donation-icon {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.donation-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.donation-address-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.donation-address-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  background: white;
+  color: #1f2937;
+  cursor: text;
+  transition: border-color 0.2s ease;
+}
+
+.donation-address-input:hover {
+  border-color: #cbd5e1;
+}
+
+.donation-address-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn-copy-address {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn-copy-address:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-copy-address:active {
+  transform: translateY(0);
+}
+
+.copy-icon {
+  font-size: 14px;
+}
+
+.donation-message {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-footer {
+  padding: 24px 32px;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-save {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-reset {
+  padding: 12px 24px;
+  background: white;
+  color: #6b7280;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-reset:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.status-message {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.status-message.show {
+  opacity: 1;
+}
+
+.status-message.success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Phone Field Options */
+.phone-field-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #f9fafb;
+}
+
+.radio-option:hover {
+  border-color: #667eea;
+  background: #f3f4f6;
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 12px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
+}
+
+.radio-option input[type="radio"]:checked ~ span {
+  color: #667eea;
+}
+
+.radio-option span {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.custom-field-input-wrapper {
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.custom-field-input-wrapper label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .settings-header {
+    padding: 24px;
+  }
+  
+  .settings-header h1 {
+    font-size: 24px;
+  }
+  
+  .settings-content {
+    padding: 24px;
+  }
+  
+  .shortcut-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .shortcut-input-group label {
+    min-width: auto;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .settings-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .status-message {
+    margin-left: 0;
+    text-align: center;
+  }
+}

@@ -1,0 +1,688 @@
+/* WHMCS Search Modal Styles - Minimal Design - Properly Scoped */
+
+/* Vazirmatn Font Face - Scoped to plugin only */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('./assets/Vazirmatn-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('./assets/Vazirmatn-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+#whmcs-search-modal-overlay.whmcs-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647; /* Maximum safe z-index */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+#whmcs-search-modal-overlay.whmcs-modal-overlay.whmcs-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#whmcs-search-modal-overlay .whmcs-modal {
+  background: #fafbfc;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-10px) scale(0.98);
+  transition: transform 0.2s ease;
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#whmcs-search-modal-overlay.whmcs-modal-overlay.whmcs-active .whmcs-modal {
+  transform: translateY(0) scale(1);
+}
+
+#whmcs-search-modal-overlay .whmcs-modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #d1d5db;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#whmcs-search-modal-overlay .whmcs-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#whmcs-search-modal-overlay .whmcs-title-icon {
+  font-size: 18px;
+}
+
+#whmcs-search-modal-overlay .whmcs-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#whmcs-search-modal-overlay .whmcs-settings-btn {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+#whmcs-search-modal-overlay .whmcs-settings-btn:hover {
+  background: #f0f9ff;
+  color: #2563eb;
+  transform: rotate(30deg);
+}
+
+#whmcs-search-modal-overlay .whmcs-close-btn {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+#whmcs-search-modal-overlay .whmcs-close-btn:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+#whmcs-search-modal-overlay .whmcs-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  background: #ffffff;
+}
+
+#whmcs-search-modal-overlay .whmcs-search-type-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#whmcs-search-modal-overlay .whmcs-type-btn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 8px 18px 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+  position: relative;
+  min-height: 60px;
+}
+
+#whmcs-search-modal-overlay .whmcs-type-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+#whmcs-search-modal-overlay .whmcs-type-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+#whmcs-search-modal-overlay .whmcs-btn-icon {
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+#whmcs-search-modal-overlay .whmcs-shortcut-hint {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #64748b;
+  background: rgba(226, 232, 240, 0.95);
+  padding: 2px 5px;
+  border-radius: 3px;
+  opacity: 1;
+  transition: all 0.15s ease;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#whmcs-search-modal-overlay .whmcs-type-btn:hover .whmcs-shortcut-hint {
+  color: #475569;
+  background: rgba(203, 213, 225, 1);
+  transform: scale(1.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#whmcs-search-modal-overlay .whmcs-type-btn.active .whmcs-shortcut-hint {
+  background: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Search Input Container with Dropdown */
+#whmcs-search-modal-overlay .whmcs-search-input-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+#whmcs-search-modal-overlay .whmcs-search-input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+#whmcs-search-modal-overlay .whmcs-user-dropdown-container {
+  display: none;
+  min-width: 120px;
+}
+
+#whmcs-search-modal-overlay .whmcs-user-select {
+  width: 100%;
+  height: 48px;
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 15px;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+#whmcs-search-modal-overlay .whmcs-user-select:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+#whmcs-search-modal-overlay .whmcs-user-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+#whmcs-search-modal-overlay .whmcs-search-input-wrapper {
+  position: relative;
+}
+
+#whmcs-search-modal-overlay .whmcs-search-input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  background: #ffffff;
+  color: #1e293b;
+}
+
+#whmcs-search-modal-overlay .whmcs-search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+#whmcs-search-modal-overlay .whmcs-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #64748b;
+  pointer-events: none;
+}
+
+#whmcs-search-modal-overlay .whmcs-keyboard-hints {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+#whmcs-search-modal-overlay .whmcs-keyboard-hints span {
+  background: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-weight: 500;
+}
+
+#whmcs-search-modal-overlay .whmcs-search-status {
+  min-height: 24px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+#whmcs-search-modal-overlay .whmcs-status-loading {
+  background: #f0f9ff;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+#whmcs-search-modal-overlay .whmcs-status-success {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+#whmcs-search-modal-overlay .whmcs-status-error {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+#whmcs-search-modal-overlay .whmcs-results-container {
+  margin-top: 16px;
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#whmcs-search-modal-overlay .whmcs-results-container:empty {
+  display: none;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  user-select: text;
+  cursor: default;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item:hover {
+  background: #f8fafc;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: -2px;
+  background: #f0f9ff;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item:last-child {
+  border-bottom: none;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-title[dir="rtl"] {
+  text-align: right;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-title[dir="ltr"] {
+  text-align: left;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-description {
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-details {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-details a.whmcs-client-link,
+#whmcs-search-modal-overlay .whmcs-result-description a.whmcs-client-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-details a.whmcs-client-link:hover,
+#whmcs-search-modal-overlay .whmcs-result-description a.whmcs-client-link:hover {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-action {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 18px;
+  user-select: none;
+}
+
+#whmcs-search-modal-overlay .whmcs-result-action:hover {
+  background: #3b82f6;
+  color: white;
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+#whmcs-search-modal-overlay .whmcs-no-results {
+  padding: 32px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#whmcs-search-modal-overlay .whmcs-modal-footer {
+  padding: 20px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+#whmcs-search-modal-overlay .whmcs-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#whmcs-search-modal-overlay .whmcs-btn-secondary {
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+#whmcs-search-modal-overlay .whmcs-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+#whmcs-search-modal-overlay .whmcs-btn-primary {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+#whmcs-search-modal-overlay .whmcs-btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+#whmcs-search-modal-overlay .whmcs-modal-header button,
+#whmcs-search-modal-overlay .whmcs-modal-footer button {
+  cursor: pointer;
+}
+
+#whmcs-search-modal-overlay .whmcs-keyboard-hint {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  margin-left: 8px;
+  opacity: 0.8;
+}
+
+#whmcs-search-modal-overlay .whmcs-btn-secondary .whmcs-keyboard-hint {
+  background: rgba(71, 85, 105, 0.1);
+  border: 1px solid rgba(71, 85, 105, 0.2);
+  color: #475569;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  #whmcs-search-modal-overlay .whmcs-modal {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  #whmcs-search-modal-overlay .whmcs-search-type-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  #whmcs-search-modal-overlay .whmcs-keyboard-hints {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* Status-based color coding for domain search results */
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-active {
+  border-left: 4px solid #10b981; /* Green for Active */
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-pending {
+  border-left: 4px solid #f59e0b; /* Yellow/Orange for Pending */
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-terminated {
+  border-left: 4px solid #ef4444; /* Red for Terminated/Cancelled */
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-suspended {
+  border-left: 4px solid #8b5cf6; /* Purple for Suspended */
+  background: linear-gradient(135deg, #faf5ff 0%, #ffffff 100%);
+}
+
+/* Ticket Status Colors */
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-open {
+  border-left: 4px solid #10b981; /* Green for Open */
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-answered {
+  border-left: 4px solid #3b82f6; /* Blue for Answered */
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-customer-reply {
+  border-left: 4px solid #f59e0b; /* Orange for Customer Reply */
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-in-progress {
+  border-left: 4px solid #06b6d4; /* Cyan for In Progress */
+  background: linear-gradient(135deg, #ecfeff 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-on-hold {
+  border-left: 4px solid #6b7280; /* Gray for On Hold */
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-closed {
+  border-left: 4px solid #64748b; /* Slate for Closed */
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Invoice-specific statuses */
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-paid {
+  border-left: 4px solid #10b981; /* Green for Paid */
+  background: linear-gradient(135deg, #d1fae5 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-unpaid {
+  border-left: 4px solid #ef4444; /* Red for Unpaid */
+  background: linear-gradient(135deg, #fee2e2 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-payment-pending {
+  border-left: 4px solid #f59e0b; /* Orange for Payment Pending */
+  background: linear-gradient(135deg, #fed7aa 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-refunded {
+  border-left: 4px solid #8b5cf6; /* Purple for Refunded */
+  background: linear-gradient(135deg, #ede9fe 0%, #ffffff 100%);
+}
+
+#whmcs-search-modal-overlay .whmcs-result-item.whmcs-status-collections {
+  border-left: 4px solid #dc2626; /* Dark Red for Collections */
+  background: linear-gradient(135deg, #fecaca 0%, #ffffff 100%);
+}
+
+/* Multiple action buttons styling */
+#whmcs-search-modal-overlay .whmcs-result-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#whmcs-search-modal-overlay .whmcs-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+#whmcs-search-modal-overlay .whmcs-action-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+#whmcs-search-modal-overlay .whmcs-action-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+#whmcs-search-modal-overlay .whmcs-action-btn .whmcs-action-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+#whmcs-search-modal-overlay .whmcs-action-btn .whmcs-action-label {
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments for action buttons */
+@media (max-width: 640px) {
+  #whmcs-search-modal-overlay .whmcs-result-actions {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+  
+  #whmcs-search-modal-overlay .whmcs-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
