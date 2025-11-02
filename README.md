@@ -2,9 +2,6 @@
 
 A powerful Chrome extension that supercharges your WHMCS admin experience with instant search capabilities. Find clients, domains, tickets, invoices, and orders without navigating away from your current page.
 
-![Version](https://img.shields.io/badge/version-1.3.2-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-
 ## ✨ Features
 
 ### 🔍 Multi-Purpose Search
@@ -122,7 +119,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **t.me/mdfrx**
 
-- GitHub: [@yourusername](https://github.com/yourusername) *(Update with your GitHub username)*
+- GitHub: (https://github.com/procden)
 - Telegram: [@mdfrx](https://t.me/mdfrx)
 
 ## 🙏 Acknowledgments
