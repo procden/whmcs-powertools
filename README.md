@@ -1,3 +1,5 @@
+To download the extension proceed to "Releases" section.
+
 # WHMCS PowerTools
 
 A powerful Chrome extension that supercharges your WHMCS admin experience with instant search capabilities. Find clients, domains, tickets, invoices, and orders without navigating away from your current page.
